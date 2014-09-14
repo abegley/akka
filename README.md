@@ -13,7 +13,7 @@ Create an event with a number of tickets.
 
 Get an overview of all events and the number of tickets available.
 
-  http PUT localhost:5000/events
+  http GET localhost:5000/events
 
 Purchase a ticket for an event.
 

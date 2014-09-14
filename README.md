@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/begleyalan/akka.svg?branch=master)](https://travis-ci.org/begleyalan/akka)
+
 akka
 =====
 Sample akka application based on a ticket selling REST service which will allow customers to buy tickets to all sorts of events, concerts, sports games and the like.

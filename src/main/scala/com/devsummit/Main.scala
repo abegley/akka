@@ -15,6 +15,8 @@ object Main extends App {
 
   implicit val system = ActorSystem("devsummit")
 
+  //Creates the top level REST Interface actor
   val api = system.actorOf(Props(new RestInterface()), "httpInterface")
+  //Start a Spray HTTP server
   IO(Http) ! Http.Bind(listener = api, interface = host, port = port)
 }

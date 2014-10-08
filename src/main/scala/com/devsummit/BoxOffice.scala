@@ -16,7 +16,7 @@ class BoxOffice extends Actor with CreateTicketSellers with ActorLogging {
   def receive = {
 
     case Event(name, nrOfTickets) =>
-      log.info(s"Creating new event ${name} with ${nrOfTickets} tickets.")
+      log.info(s"Creating new event ${name}, with ${nrOfTickets} tickets.")
       //if ticket sellers have not been created already -- Notice that it uses it's context instead of the actor system
       //to create the actor; Actors created with the context of another Actor are its children and subject to the parent
       //Actor's supervision

@@ -1,3 +1,4 @@
+before_install: cd devsummit
 language: scala
 jdk: oraclejdk8
 scala:

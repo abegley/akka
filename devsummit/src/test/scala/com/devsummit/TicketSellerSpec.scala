@@ -17,10 +17,10 @@ class TicketSellerSpec extends TestKit(ActorSystem("testTickets"))
 
       val ticketingActor = system.actorOf(Props[TicketSeller])
 
-      ticketingActor ! Tickets(mkTickets("RHCP"))
+      ticketingActor ! Tickets(mkTickets("Akka"))
       ticketingActor ! BuyTicket
 
-      expectMsg(Ticket("RHCP", 1))
+      expectMsg(Ticket("Akka", 1))
 
       val nrs = (2 to 10)
       nrs.foreach(_ => ticketingActor ! BuyTicket)

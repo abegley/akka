@@ -15,11 +15,11 @@ class BoxOfficeSpec extends TestKit(ActorSystem("testTickets"))
       import TicketProtocol._
 
       val boxOffice = system.actorOf(Props[BoxOffice])
-      boxOffice ! Event("RHCP", 10)
+      boxOffice ! Event("Akka", 10)
       expectMsg(EventCreated)
 
-      boxOffice ! TicketRequest("RHCP")
-      expectMsg(Ticket("RHCP", 1))
+      boxOffice ! TicketRequest("Akka")
+      expectMsg(Ticket("Akka", 1))
 
       boxOffice ! TicketRequest("DavidBowie")
       expectMsg(SoldOut)
@@ -32,8 +32,8 @@ class BoxOfficeSpec extends TestKit(ActorSystem("testTickets"))
       val boxOffice = system.actorOf(Props(new BoxOffice with TestActorCreateTicketSellers {
                                          def testActorRef = testActor
                                     }))
-      boxOffice ! Event("RHCP", 3)
-      expectMsg(Tickets(List(Ticket("RHCP",1),Ticket("RHCP",2),Ticket("RHCP",3))))
+      boxOffice ! Event("Akka", 3)
+      expectMsg(Tickets(List(Ticket("Akka",1),Ticket("Akka",2),Ticket("Akka",3))))
       expectMsg(EventCreated)
 
     }

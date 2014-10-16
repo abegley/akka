@@ -10,17 +10,18 @@ import akka.util.Timeout
 import scala.concurrent.duration._
 
 class RestInterface extends HttpServiceActor
-                    with RestApi {
+                    with RestApi { ////The RestApi trait contains all the logic for the RestInterface actor. 
   def receive = runRoute(routes)
 }
 
-trait RestApi extends HttpService with ActorLogging with BoxOfficeCreator { actor: Actor =>
+trait RestApi extends HttpService with ActorLogging with BoxOfficeCreator { actor: Actor =>  //The BoxOfficeCreator trait is mixed into the RestApi trait 
   import com.devsummit.TicketProtocol._
   import context._
   implicit val timeout = Timeout(10 seconds)
   import akka.pattern.ask
   import akka.pattern.pipe
 
+  //BoxOffice is created using the createBoxOffice method 
   val boxOffice = createBoxOffice
 
   def routes: Route =

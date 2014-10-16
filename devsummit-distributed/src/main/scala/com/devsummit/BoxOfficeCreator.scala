@@ -5,7 +5,16 @@ import com.typesafe.config.ConfigFactory
 import akka.actor.ActorIdentity
 import akka.actor.Identify
 
-trait BoxOfficeCreator { this: Actor =>
+/*
+val boxOffice = context.actorOf(Props[BoxOffice], "boxOffice")
+
+The above call made the boxOffice a direct child of the RestInterface.
+To make the app a bit more flexible and to make it possible to run it both in single node and in client server,
+move the above code into the BoxOfficeCreator trait that we can mix in.
+ */
+
+trait BoxOfficeCreator { this: Actor =>  //This trait has to be mixed into an Actor so it can use the actor context.   
+  //The createBoxOffice method creates the BoxOffice actor and returns an ActorRef.   
   def createBoxOffice:ActorRef = context.actorOf(Props[BoxOffice],"boxOffice")
 }
 

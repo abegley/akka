@@ -18,6 +18,9 @@ object AskPatternApp extends App {
 
 class EchoActor extends Actor {
   override def receive: Receive = {
+    //case msg => Thread.sleep(2000) ; sender ! msg
+    //Above will throw java.util.concurrent.TimeOutException: Futures timed out after [500 milliseconds]
+
     case msg => sender ! msg
   }
 }

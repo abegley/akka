@@ -1,0 +1,9 @@
+What is Akka?
+
+Akka is a toolkit and runtime for building highly concurrent, distributed, and fault tolerant applications on the JVM. Akka is written in Scala, with language bindings provided for both Scala and Java.
+
+Akka’s approach to handling concurrency is based on the Actor Model.
+
+In an actor-based system, everything is an actor, in much the same way that everything is an object in object-oriented design.
+
+A key difference, though – particularly relevant to our discussion – is that the Actor Model was specifically designed and architected to serve as a concurrent model whereas the object-oriented model is not.
